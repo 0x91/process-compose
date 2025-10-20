@@ -1,0 +1,51 @@
+{
+  "name": "process-compose-mcp",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "FastMCP TypeScript server exposing Process Compose tools",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run test/integration/**/*.test.ts"
+  },
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F1bonacc1/process-compose.git"
+  },
+  "keywords": ["mcp", "model context protocol", "process-compose", "devserver"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "pc-mcp-ts": "bin/pc-mcp-ts.js"
+  },
+  "dependencies": {
+    "fastmcp": "^3.15.0",
+    "ws": "^8.17.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.25",
+    "@types/ws": "^8.5.10",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.3"
+  },
+  "prepare": "npm run build",
+  "prepublishOnly": "npm run build"
+}
